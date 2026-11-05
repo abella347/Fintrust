@@ -1,0 +1,16 @@
+# Used when the project folder itself is the web root (e.g. http://localhost/fintrust).
+# Only public/ is reachable; everything else returns 403.
+
+Options -Indexes
+RewriteEngine On
+
+# Block dotfiles (.env, .git, .htaccess) everywhere.
+RewriteRule (^|/)\. - [F,L]
+
+# Block backend folders and project files outright.
+RewriteRule ^(app|config|database|routes|scripts|tests|storage|docs|vendor)(/|$) - [F,L]
+RewriteRule ^(composer\.(json|lock)|README\.md|phpunit\.xml)$ - [F,L]
+
+# Send everything else into public/.
+RewriteCond %{REQUEST_URI} !/public/
+RewriteRule ^(.*)$ public/$1 [L]

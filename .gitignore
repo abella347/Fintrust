@@ -1,0 +1,23 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Runtime files
+storage/logs/*
+storage/mail/*
+storage/cache/*
+storage/avatars/*
+!storage/**/.gitkeep
+
+# Dependencies
+/vendor/
+
+# Editor / OS noise
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+__pycache__/

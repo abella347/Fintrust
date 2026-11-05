@@ -1,0 +1,2 @@
+# Defence in depth: backend files are never served by Apache.
+Require all denied
